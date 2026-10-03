@@ -34,7 +34,7 @@ def secrets_read(secret_env: str, secret_file: str) -> str:
         raise ImproperlyConfigured(f"The {secret_env} and {secret_file} environment variable is not set.")
 
 docker_secrets = "/run/secrets/keys"
-SECRET_KEY = secrets_read("DJANGO_SECRET_KEY", "/run/secrets/keys")
+SECRET_KEY = secrets_read("DJANGO_SECRET_KEY", docker_secrets)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 debug = os.environ.get("DJANGO_DEBUG")
